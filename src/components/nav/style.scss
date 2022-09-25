@@ -1,0 +1,12 @@
+.nav {
+  @apply flex justify-center items-center text-light mt-3;
+  ul {
+    @apply flex;
+    li {
+      @apply px-2;
+      &:hover {
+        @apply border-b border-light;
+      }
+    }
+  }
+}

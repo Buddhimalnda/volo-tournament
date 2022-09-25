@@ -1,0 +1,7 @@
+.imgs {
+  @apply flex justify-between -z-20 block;
+  .flips {
+    // -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+}

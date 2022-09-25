@@ -1,0 +1,36 @@
+.App {
+  background-image: url(asset/bg-1.jpg);
+  background-size: cover;
+  @apply h-screen w-full overflow-hidden;
+
+  .img {
+    background-image: url(asset/Polygon.png);
+    background-size: cover;
+    @apply fixed  flex flex-col justify-between items-center h-screen w-screen;
+    // img {
+    //   @apply mt-2 mx-auto;
+    // }
+    // .inside {
+    //   @apply flex flex-col justify-between items-center;
+    // }
+    .logo {
+      @apply flex justify-center mt-40;
+      h1 {
+        @apply text-light text-8xl font-Rubik -mt-10;
+      }
+    }
+    .btn-group {
+      @apply fixed justify-center mt-80;
+      .btn {
+        @apply rounded-lg border-light border text-light p-2 text-2xl px-4 my-3 mx-1 text-center;
+
+        &:hover {
+          @apply bg-primary;
+        }
+      }
+    }
+    p {
+      @apply text-center text-light mb-20 w-1/3;
+    }
+  }
+}
