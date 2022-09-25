@@ -6,9 +6,9 @@ function Navbar() {
     <div className="nav">
       <ul>
         <li>Home</li>
-        <li>Home</li>
-        <li>Home</li>
-        <li>Home</li>
+        <li>Event Details</li>
+        <li>Teams Details</li>
+        <li>Partners</li>
       </ul>
     </div>
   );
