@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import React from "react";
 import Countdown from "react-countdown";
+import CountdownUI from "../countdown";
 import "./style.scss";
 
 function Mid() {
@@ -13,7 +14,7 @@ function Mid() {
           <h1>IGNITION</h1>
         </div>
         <div className="btn-group">
-          <Countdown date={Date.now() + 10000} />
+          <CountdownUI />
           <div className="grid">
             <div className="col col-span-10">
               {/* <div className="btn btn-register">Register</div> */}
@@ -34,10 +35,9 @@ function Mid() {
           </div>
         </div>
         <p className="z-50">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-          itaque repellendus ea hic repudiandae totam alias accusamus sed, nam
-          animi, cum, minima ullam sint! Voluptate a impedit iusto obcaecati
-          hic.
+          With this initiative we plan on boarding all the ……….. together by
+          organizing a competition which interest all most young souls of this
+          age. Which is non other than an E sport competition
         </p>
         {/* </div> */}
       </div>

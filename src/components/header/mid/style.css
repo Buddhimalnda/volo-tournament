@@ -1,0 +1,51 @@
+.img {
+  background-image: url(../../../asset/Polygon.png);
+  background-size: cover;
+  @apply fixed  flex flex-col justify-between items-center h-screen w-screen;
+}
+
+.img .logo {
+  @apply flex justify-center mt-40;
+}
+
+.img .logo h1 {
+  @apply text-light text-8xl font-Rubik -mt-10;
+}
+
+.img .btn-group {
+  @apply fixed justify-center mt-80;
+}
+
+.img .btn-group .btn {
+  @apply rounded-lg border-light border text-light p-2 text-2xl px-4 my-3 mx-1 text-center;
+}
+
+.img .btn-group .btn:hover {
+  @apply bg-primary;
+}
+
+.img p {
+  @apply text-center text-light mb-20 w-1/3;
+}
+
+@media only screen and (max-width: 900px) {
+  .img {
+    @apply bg-none;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .img {
+    @apply items-start;
+  }
+  .img .logo h1 {
+    @apply text-6xl mx-10;
+  }
+  .img .btn-group {
+    @apply mt-56;
+  }
+  .img p {
+    @apply items-start w-full text-justify;
+  }
+}
+/*# sourceMappingURL=style.css.map */

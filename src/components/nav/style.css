@@ -1,0 +1,16 @@
+.nav {
+  @apply fixed top-0 w-full z-50 flex justify-center items-center text-light mt-3;
+}
+
+.nav ul {
+  @apply flex;
+}
+
+.nav ul li {
+  @apply px-2;
+}
+
+.nav ul li:hover {
+  @apply border-b border-primary text-primary;
+}
+/*# sourceMappingURL=style.css.map */

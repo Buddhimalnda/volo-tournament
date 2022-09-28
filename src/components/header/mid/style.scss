@@ -47,7 +47,15 @@
       @apply mt-56;
     }
     p {
-      @apply items-start w-full;
+      @apply items-start w-full text-justify;
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .img {
+    p {
+      @apply items-start w-full text-justify;
     }
   }
 }

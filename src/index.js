@@ -4,6 +4,7 @@ import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createTheme, ThemeProvider } from "@mui/material";
+import Register from "./screens/register";
 
 const theme = createTheme({
   palette: {
@@ -19,7 +20,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ThemeProvider theme={theme}>
     <React.StrictMode>
-      <App />
+      {/* <App /> */}
+      <Register />
     </React.StrictMode>
   </ThemeProvider>
 );

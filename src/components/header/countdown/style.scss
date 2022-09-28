@@ -1,0 +1,9 @@
+.countdown {
+  @apply h-10  my-8 text-light;
+  .countdown-card {
+    @apply flex items-center justify-center;
+    .card {
+      @apply border-light border-2 p-3 mx-2 text-light shadow-xl shadow-black;
+    }
+  }
+}
