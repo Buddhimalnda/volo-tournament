@@ -14,7 +14,7 @@ import "./style.scss";
 function PlayerRegister() {
   return (
     <div className="register">
-      <form>
+      <form className="panel">
         <Grid container spacing={2} rowSpacing={1}>
           <Grid
             item
@@ -62,8 +62,11 @@ function PlayerRegister() {
               helperText="Valorant tag"
             />
           </Grid>
-          <Grid item md={12} xs={12}>
+          <Grid item md={6} xs={6}>
             <h2 className="ml-2">Contact Details</h2>
+          </Grid>
+          <Grid item md={6} xs={6}>
+            <h2 className="ml-2">Account's Details</h2>
           </Grid>
           <Grid item md={2} xs={6}>
             <TextField
@@ -83,7 +86,7 @@ function PlayerRegister() {
               variant="outlined"
             />
           </Grid>
-          <Grid item md={3} xs={6}>
+          {/* <Grid item md={3} xs={6}>
             <TextField
               fullWidth
               color="secondary"
@@ -101,28 +104,29 @@ function PlayerRegister() {
               label="Discode Id"
               variant="outlined"
             />
-          </Grid>
-          <Grid item md={12} xs={12}>
+          </Grid> */}
+          {/* <Grid item md={12} xs={12}>
             <p className="text-sm text-danger">
-              Discode ID: Go to CeylonRP Discord Server> Go to bot command only
-              channel > Type !user > click ENTER > copy & Enter your Member ID
+              Discode ID: Go to Discord Server> Go to bot command only channel >
+              Type !user > click ENTER > copy & Enter your Member ID
             </p>
-          </Grid>
-          <Grid item md={6}>
+          </Grid> */}
+          {/* <Grid item md={6}>
             <h2 className="ml-2">Account's Details</h2>
           </Grid>
+
           <Grid item md={6} className="flex items-center justify-center">
-            {/* <Link className="text-secondry" to="/valo/player/register">
+            <Link className="text-secondry" to="/valo/player/register">
               Player Registation
-            </Link> */}
-          </Grid>
+            </Link>
+          </Grid> */}
           {/* <Grid item md={3} className="flex items-center justify-center">
             <Link className="text-secondry" to="/valo/player/">
               Player Check
             </Link>
           </Grid> */}
 
-          <Grid item md={4}>
+          <Grid item md={2}>
             <TextField
               fullWidth
               color="secondary"
@@ -132,7 +136,7 @@ function PlayerRegister() {
             />
           </Grid>
           {/* <Grid item md={3}></Grid> */}
-          <Grid item md={4}>
+          <Grid item md={2}>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Rack Name</InputLabel>
               <Select
@@ -154,7 +158,7 @@ function PlayerRegister() {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={2}>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Rank level</InputLabel>
               <Select

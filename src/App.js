@@ -20,6 +20,8 @@ import Home from "./screens/home";
 import Navbar from "./components/nav";
 import Register from "./screens/register";
 import PlayerRegister from "./screens/register/player";
+import Login from "./auth/login";
+import Player from "./screens/player";
 
 function App() {
   const actions = [
@@ -42,6 +44,12 @@ function App() {
         </Route>
         <Route path="/valo/player/register">
           <PlayerRegister />
+        </Route>
+        <Route path="/valo/player/">
+          <Player />
+        </Route>
+        <Route path="/admin/login">
+          <Login />
         </Route>
       </Switch>
     </div>

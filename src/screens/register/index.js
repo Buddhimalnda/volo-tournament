@@ -12,7 +12,7 @@ import "./style.scss";
 function Register() {
   return (
     <div className="register">
-      <form>
+      <form className="panel">
         <Grid container spacing={2} rowSpacing={1}>
           <Grid
             item
@@ -50,7 +50,7 @@ function Register() {
             />
           </Grid>
           <Grid item md={12} xs={12}>
-            <h2 className="ml-2">Contact Details</h2>
+            <h2 className="ml-2">Leader Contact Details</h2>
           </Grid>
           <Grid item md={2} xs={6}>
             <TextField
@@ -91,20 +91,26 @@ function Register() {
           </Grid>
           <Grid item md={12} xs={12}>
             <p className="text-sm text-danger">
-              Discode ID: Go to CeylonRP Discord Server> Go to bot command only
-              channel > Type !user > click ENTER > copy & Enter your Member ID
+              Discode ID: Go to Discord Server> Go to bot command only channel >
+              Type !user > click ENTER > copy & Enter your Member ID
             </p>
           </Grid>
           <Grid item md={6}>
             <h2 className="ml-2">Team Member's Details</h2>
           </Grid>
           <Grid item md={3} className="flex items-center justify-center">
-            <Link className="text-secondry" to="/valo/player/register">
+            <Link
+              className="text-secondry border-dashed border-primary border-2 px-3"
+              to="/valo/player/register"
+            >
               Player Registation
             </Link>
           </Grid>
           <Grid item md={3} className="flex items-center justify-center">
-            <Link className="text-secondry" to="/valo/player/">
+            <Link
+              className="text-secondry border-dashed border-primary border-2 px-3"
+              to="/valo/player/"
+            >
               Player Check
             </Link>
           </Grid>
@@ -162,8 +168,22 @@ function Register() {
               variant="outlined"
             />
           </Grid>
+          <Grid item md={3}>
+            <TextField
+              fullWidth
+              color="secondary"
+              id="member-6-contatct"
+              label="Member Id #07"
+              variant="outlined"
+            />
+          </Grid>
+          <Grid item md={3}>
+            <p className="text-danger text-center">
+              You can have 2 extra players, Its also optional.
+            </p>
+          </Grid>
 
-          <Grid item md={6}></Grid>
+          {/* <Grid item md={6}></Grid> */}
           <Grid item md={6}>
             <Button variant="contained" color="secondary" fullWidth>
               Submit
