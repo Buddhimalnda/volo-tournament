@@ -28,7 +28,7 @@ module.exports = {
       light: "#EEEEEE",
       primary: "#88303C",
       // "primary-t": "#2e024970",
-      secondry: "#570A57",
+      secondry: "#0F1923",
       thired: "#A91079",
       danger: "#8C0000",
       success: "#06FF00",

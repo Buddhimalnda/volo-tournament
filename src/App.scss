@@ -3,9 +3,3 @@
   background-size: cover;
   @apply h-screen w-full overflow-hidden;
 }
-
-@media only screen and (max-width: 1500px) {
-  .agent {
-    @apply hidden;
-  }
-}

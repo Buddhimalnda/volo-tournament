@@ -4,6 +4,8 @@ import {
   FormControl,
   Grid,
   InputLabel,
+  MenuItem,
+  Select,
   TextField,
 } from "@mui/material";
 import React from "react";
@@ -110,16 +112,17 @@ function PlayerRegister() {
             <h2 className="ml-2">Account's Details</h2>
           </Grid>
           <Grid item md={6} className="flex items-center justify-center">
-            <Link className="text-secondry" to="/valo/player/register">
+            {/* <Link className="text-secondry" to="/valo/player/register">
               Player Registation
-            </Link>
+            </Link> */}
           </Grid>
           {/* <Grid item md={3} className="flex items-center justify-center">
             <Link className="text-secondry" to="/valo/player/">
               Player Check
             </Link>
           </Grid> */}
-          <Grid item md={6}>
+
+          <Grid item md={4}>
             <TextField
               fullWidth
               color="secondary"
@@ -128,45 +131,46 @@ function PlayerRegister() {
               variant="outlined"
             />
           </Grid>
-          <Grid item md={3}></Grid>
-          <Grid item md={3}>
-            <TextField
-              fullWidth
-              color="secondary"
-              id="member-2-contatct"
-              label="Member Id #03"
-              variant="outlined"
-            />
+          {/* <Grid item md={3}></Grid> */}
+          <Grid item md={4}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Rack Name</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="rank-name-account"
+                value={10}
+                label="Rack Name"
+                // onChange={handleChange}
+              >
+                <MenuItem value={10}>Iron</MenuItem>
+                <MenuItem value={20}>Bronze</MenuItem>
+                <MenuItem value={30}>Silver</MenuItem>
+                <MenuItem value={30}>Gold</MenuItem>
+                <MenuItem value={30}>Platinum</MenuItem>
+                <MenuItem value={30}>Diamond</MenuItem>
+                <MenuItem value={30}>Ascendant</MenuItem>
+                <MenuItem value={30}>Immortal</MenuItem>
+                <MenuItem value={30}>Radiant</MenuItem>
+              </Select>
+            </FormControl>
           </Grid>
-          <Grid item md={3}>
-            <TextField
-              fullWidth
-              color="secondary"
-              id="member-3-contatct"
-              label="Member Id #04"
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item md={3}>
-            <TextField
-              fullWidth
-              color="secondary"
-              id="member-4-contatct"
-              label="Member Id #05"
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item md={3}>
-            <TextField
-              fullWidth
-              color="secondary"
-              id="member-5-contatct"
-              label="Member Id #06"
-              variant="outlined"
-            />
+          <Grid item md={4}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Rank level</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="rank-count-account"
+                value={1}
+                label="Rank level"
+                // onChange={handleChange}
+              >
+                <MenuItem value={1}>1</MenuItem>
+                <MenuItem value={2}>2</MenuItem>
+                <MenuItem value={3}>3</MenuItem>
+              </Select>
+            </FormControl>
           </Grid>
 
-          <Grid item md={6}></Grid>
           <Grid item md={6}>
             <Button variant="contained" color="secondary" fullWidth>
               Submit

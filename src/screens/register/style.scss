@@ -1,0 +1,9 @@
+.register {
+  @apply flex justify-center items-center h-screen;
+  form {
+    @apply bg-light p-5 m-5;
+    h1 {
+      @apply font-bold text-2xl;
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import React from "react";
 import Countdown from "react-countdown";
+import { Link } from "react-router-dom";
 import CountdownUI from "../countdown";
 import "./style.scss";
 
@@ -18,9 +19,15 @@ function Mid() {
           <div className="grid">
             <div className="col col-span-10">
               {/* <div className="btn btn-register">Register</div> */}
-              <Button variant="outlined" className="btn w-full">
-                Register
-              </Button>
+              <Link to="/valo/register" re>
+                <Button
+                  variant="outlined"
+                  className="btn w-full"
+                  onClick={() => window.location("/volo/register")}
+                >
+                  Register
+                </Button>
+              </Link>
             </div>
             <div className="col-span-2 flex ">
               {/* <div className="btn btn-register"></div> */}
