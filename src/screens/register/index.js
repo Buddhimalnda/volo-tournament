@@ -6,193 +6,51 @@ import {
   InputLabel,
   TextField,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import InitialRegisterPage from "./0";
+import TeamRegPage from "./1";
+import MemberRegPage from "./1";
+import BankReciptPage from "./3";
+import PlayerRegister from "./player";
 import "./style.scss";
 function Register() {
+  const [pageCount, setPageCount] = useState(0);
   return (
     <div className="register">
       <form className="panel">
         <Grid container spacing={2} rowSpacing={1}>
-          <Grid
-            item
-            md={12}
-            xs={12}
-            className="flex items-center justify-center"
-          >
-            <h1>Team Register</h1>
-          </Grid>
-          <Grid item md={12} xs={12}>
-            <TextField
-              fullWidth
-              id="name-team"
-              label="Team Name"
-              variant="outlined"
-              color="secondary"
-            />
-          </Grid>
-          <Grid item md={6} xs={12}>
-            <TextField
-              fullWidth
-              id="logo-team"
-              label="Team Logo"
-              variant="outlined"
-              color="secondary"
-            />
-          </Grid>
-          <Grid item md={6} xs={12}>
-            <TextField
-              fullWidth
-              id="leader-team"
-              label="Team Leader"
-              variant="outlined"
-              color="secondary"
-            />
-          </Grid>
-          <Grid item md={12} xs={12}>
-            <h2 className="ml-2">Leader Contact Details</h2>
-          </Grid>
-          <Grid item md={2} xs={6}>
-            <TextField
-              fullWidth
-              color="secondary"
-              id="w-number-contatct"
-              label="Whatsapp Number"
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item md={4} xs={6}>
-            <TextField
-              fullWidth
-              color="secondary"
-              id="email-contatct"
-              label="Email"
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item md={3} xs={6}>
-            <TextField
-              fullWidth
-              color="secondary"
-              id="discode-contatct"
-              label="Discode Name"
-              variant="outlined"
-              helperText="discode name with a #code eg. NAME#CODE"
-            />
-          </Grid>
-          <Grid item md={3} xs={6}>
-            <TextField
-              fullWidth
-              color="secondary"
-              id="discode-contatct"
-              label="Discode Id"
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item md={12} xs={12}>
-            <p className="text-sm text-danger">
-              Discode ID: Go to Discord Server> Go to bot command only channel >
-              Type !user > click ENTER > copy & Enter your Member ID
-            </p>
+          <Grid item md={12}>
+            {pageCount === 0 ? (
+              <InitialRegisterPage />
+            ) : pageCount === 1 ? (
+              <TeamRegPage />
+            ) : pageCount === 2 ? (
+              <MemberRegPage />
+            ) : pageCount === 3 ? (
+              <BankReciptPage />
+            ) : (
+              "success"
+            )}
           </Grid>
           <Grid item md={6}>
-            <h2 className="ml-2">Team Member's Details</h2>
-          </Grid>
-          <Grid item md={3} className="flex items-center justify-center">
-            <Link
-              className="text-secondry border-dashed border-primary border-2 px-3"
-              to="/valo/player/register"
+            <Button
+              variant="contained"
+              color="secondary"
+              fullWidth
+              onClick={() => setPageCount(pageCount <= 3 ? pageCount + 1 : 0)}
             >
-              Player Registation
-            </Link>
-          </Grid>
-          <Grid item md={3} className="flex items-center justify-center">
-            <Link
-              className="text-secondry border-dashed border-primary border-2 px-3"
-              to="/valo/player/"
-            >
-              Player Check
-            </Link>
-          </Grid>
-          <Grid item md={3}>
-            <TextField
-              fullWidth
-              color="secondary"
-              id="member-0-contatct"
-              label="Member Id #01"
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item md={3}>
-            <TextField
-              fullWidth
-              color="secondary"
-              id="member-1-contatct"
-              label="Member Id #02"
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item md={3}>
-            <TextField
-              fullWidth
-              color="secondary"
-              id="member-2-contatct"
-              label="Member Id #03"
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item md={3}>
-            <TextField
-              fullWidth
-              color="secondary"
-              id="member-3-contatct"
-              label="Member Id #04"
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item md={3}>
-            <TextField
-              fullWidth
-              color="secondary"
-              id="member-4-contatct"
-              label="Member Id #05"
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item md={3}>
-            <TextField
-              fullWidth
-              color="secondary"
-              id="member-5-contatct"
-              label="Member Id #06"
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item md={3}>
-            <TextField
-              fullWidth
-              color="secondary"
-              id="member-6-contatct"
-              label="Member Id #07"
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item md={3}>
-            <p className="text-danger text-center">
-              You can have 2 extra players, Its also optional.
-            </p>
-          </Grid>
-
-          {/* <Grid item md={6}></Grid> */}
-          <Grid item md={6}>
-            <Button variant="contained" color="secondary" fullWidth>
-              Submit
+              Next
             </Button>
           </Grid>
           {/* <Grid item md={2}></Grid> */}
           <Grid item md={6}>
-            <Button variant="contained" fullWidth>
-              Reset
+            <Button
+              variant="contained"
+              fullWidth
+              onClick={() => setPageCount(pageCount >= 0 ? pageCount - 1 : 0)}
+            >
+              Back
             </Button>
           </Grid>
         </Grid>
