@@ -10,7 +10,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#88303C",
+      main: "#FF4654",
     },
     secondary: {
       main: "#0F1923",

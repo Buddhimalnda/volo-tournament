@@ -1,9 +1,25 @@
-import { Grid, TextField } from "@mui/material";
-import React from "react";
+import { Button, Grid, TextField } from "@mui/material";
+import React, { useEffect, useState } from "react";
 
-function TeamRegPage() {
+function TeamRegPage({ nextPage }) {
+  const [teamName, setTeamName] = useState();
+  const [teamLogo, setTeamLogo] = useState();
+  const [teamLeader, setTeamLeader] = useState();
+  const [teamWP, setTeamWP] = useState();
+  const [teamEmail, setTeamEmail] = useState();
+  const [teamDiscodeName, setTeamDiscodeName] = useState();
+  const [teamDiscodeID, setTeamDiscodeID] = useState();
+
+  let team = {
+    name: teamName,
+    logo: teamLogo,
+    leader: teamLeader,
+    whatsapp: teamWP,
+    email: teamEmail,
+    discode: { name: teamDiscodeName, id: teamDiscodeID },
+  };
   return (
-    <div>
+    <Grid container spacing={2} rowSpacing={1}>
       <Grid item md={12} xs={12} className="flex items-center justify-center">
         <h1>Team Register</h1>
       </Grid>
@@ -14,6 +30,7 @@ function TeamRegPage() {
           label="Team Name"
           variant="outlined"
           color="secondary"
+          onChange={(e) => setTeamName(e.target.value)}
         />
       </Grid>
       <Grid item md={6} xs={12}>
@@ -23,6 +40,7 @@ function TeamRegPage() {
           label="Team Logo"
           variant="outlined"
           color="secondary"
+          onChange={(e) => setTeamLogo(e.target.value)}
         />
       </Grid>
       <Grid item md={6} xs={12}>
@@ -32,6 +50,7 @@ function TeamRegPage() {
           label="Team Leader"
           variant="outlined"
           color="secondary"
+          onChange={(e) => setTeamLeader(e.target.value)}
         />
       </Grid>
       <Grid item md={12} xs={12}>
@@ -44,6 +63,7 @@ function TeamRegPage() {
           id="w-number-contatct"
           label="Whatsapp Number"
           variant="outlined"
+          onChange={(e) => setTeamWP(e.target.value)}
         />
       </Grid>
       <Grid item md={4} xs={6}>
@@ -53,6 +73,7 @@ function TeamRegPage() {
           id="email-contatct"
           label="Email"
           variant="outlined"
+          onChange={(e) => setTeamEmail(e.target.value)}
         />
       </Grid>
       <Grid item md={3} xs={6}>
@@ -63,6 +84,7 @@ function TeamRegPage() {
           label="Discode Name"
           variant="outlined"
           helperText="discode name with a #code eg. NAME#CODE"
+          onChange={(e) => setTeamDiscodeName(e.target.value)}
         />
       </Grid>
       <Grid item md={3} xs={6}>
@@ -72,6 +94,7 @@ function TeamRegPage() {
           id="discode-contatct"
           label="Discode Id"
           variant="outlined"
+          onChange={(e) => setTeamDiscodeID(e.target.value)}
         />
       </Grid>
       <Grid item md={12} xs={12}>
@@ -80,7 +103,22 @@ function TeamRegPage() {
           &gt; Type !user &gt; click ENTER {">"} copy & Enter your Member ID
         </p>
       </Grid>
-    </div>
+      <Grid item md={6}>
+        <Button
+          variant="contained"
+          color="secondary"
+          fullWidth
+          onClick={() => nextPage(2)}
+        >
+          Next
+        </Button>
+      </Grid>
+      <Grid item md={6}>
+        <Button variant="contained" fullWidth onClick={() => nextPage(0)}>
+          Back
+        </Button>
+      </Grid>
+    </Grid>
   );
 }
 

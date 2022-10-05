@@ -5,11 +5,17 @@
     h1 {
       @apply font-bold text-2xl;
     }
+    ul {
+      li {
+        @apply ml-4;
+        list-style-type: disc;
+      }
+    }
   }
 }
 
 @media only screen and (max-width: 1000px) {
   .register {
-    // @apply mt-20;
+    @apply block;
   }
 }

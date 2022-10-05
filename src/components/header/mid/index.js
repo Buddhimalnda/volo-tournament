@@ -23,7 +23,7 @@ function Mid() {
                 <Button
                   variant="outlined"
                   className="btn w-full"
-                  onClick={() => window.location("/volo/register")}
+                  // onClick={() => window.location("/volo/register")}
                 >
                   Register
                 </Button>
