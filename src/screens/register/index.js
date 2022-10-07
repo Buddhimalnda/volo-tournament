@@ -12,6 +12,7 @@ import InitialRegisterPage from "./0";
 import TeamRegPage from "./1";
 import MemberRegPage from "./2";
 import BankReciptPage from "./3";
+import Validate from "./4";
 import PlayerRegister from "./player";
 import "./style.scss";
 function Register() {
@@ -33,6 +34,8 @@ function Register() {
               <MemberRegPage nextPage={(e) => setPageCount(e)} />
             ) : pageCount === 3 ? (
               <BankReciptPage nextPage={(e) => setPageCount(e)} />
+            ) : pageCount === 4 ? (
+              <Validate nextPage={(e) => setPageCount(e)} />
             ) : pageCount < 0 ? (
               setPageCount(0)
             ) : (

@@ -17,7 +17,7 @@ function BankReciptPage({ nextPage }) {
         timestamp: new Date().toJSON,
         bank: file,
       })
-    )
+    );
   };
   return (
     <Grid container spacing={2} rowSpacing={1}>
@@ -47,7 +47,7 @@ function BankReciptPage({ nextPage }) {
           variant="contained"
           color="secondary"
           fullWidth
-          onClick={() => nextPage(4)}
+          onClick={(e) => onHandleBtn(e)}
         >
           Next
         </Button>
