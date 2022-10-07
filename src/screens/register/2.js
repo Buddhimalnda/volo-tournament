@@ -1,15 +1,29 @@
 import { Button, Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import PlayerRegister from "./player";
+import { addMembersDetails } from "../../app/register/refSlice";
+import { useDispatch } from "react-redux";
+
 
 function MemberRegPage({ nextPage }) {
   const [playerOne, setPlayerOne] = useState({});
   const [playerTwo, setPlayerTwo] = useState({});
   const [playerThree, setPlayerThree] = useState({});
-  const [perlayFour, seterPlayerFour] = useState({});
+  const [playerFour, setPlayerFour] = useState({});
   const [playerFive, setPlayerFive] = useState({});
   const [playerSix, setPlayerSix] = useState({});
   const [playerSeven, setPlayerSeven] = useState({});
+  const dispatch = useDispatch()
+
+  
+  const onHandleBtn = (e) => {
+    // e.preventdefault();
+    nextPage(3);
+    dispatch(
+      addMembersDetails({0: playerOne,
+         1: playerTwo, 2: playerThree, 3: playerFour, 4: playerFive, 5: playerSix ? playerSix : " ", 6: playerSeven ? playerSeven : " ",})
+    );
+  };
 
   return (
     <Grid container spacing={2} rowSpacing={1}>
@@ -23,7 +37,7 @@ function MemberRegPage({ nextPage }) {
           <PlayerRegister i={1} data={(e) => setPlayerOne(e)} />
           <PlayerRegister i={2} data={(e) => setPlayerTwo(e)} />
           <PlayerRegister i={3} data={(e) => setPlayerThree(e)} />
-          <PlayerRegister i={4} data={(e) => seterPlayerFour(e)} />
+          <PlayerRegister i={4} data={(e) => setPlayerFour(e)} />
           <PlayerRegister i={5} data={(e) => setPlayerFive(e)} />
           <PlayerRegister i={6} data={(e) => setPlayerSix(e)} />
           <PlayerRegister i={7} data={(e) => setPlayerSeven(e)} />
@@ -39,7 +53,7 @@ function MemberRegPage({ nextPage }) {
           variant="contained"
           color="secondary"
           fullWidth
-          onClick={() => nextPage(3)}
+          onClick={(e) => onHandleBtn(e)}
         >
           Next
         </Button>

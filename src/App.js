@@ -22,6 +22,9 @@ import Register from "./screens/register";
 import PlayerRegister from "./screens/register/player";
 import Login from "./auth/login";
 import Player from "./screens/player";
+import AboutUs from "./screens/about";
+import TeamDetails from "./screens/teams";
+import EventDetails from "./screens/event";
 
 function App() {
   const actions = [
@@ -50,6 +53,15 @@ function App() {
         </Route>
         <Route path="/admin/login">
           <Login />
+        </Route>
+        <Route path="/aboutus">
+          <AboutUs />
+        </Route>
+        <Route path="/team">
+          <TeamDetails />
+        </Route>
+        <Route path="/event">
+          <EventDetails />
         </Route>
       </Switch>
     </div>

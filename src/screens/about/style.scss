@@ -1,0 +1,23 @@
+.content-t {
+    @apply flex justify-between items-center m-3;
+
+    h3 {
+        @apply text-xl;
+    }
+
+    p {
+        @apply text-justify;
+    }
+
+    .icon {
+        @apply mx-5 flex items-center justify-center h-full;
+    }
+}
+
+.container-r {
+    @apply flex justify-center items-center h-full;
+
+    .container {
+        @apply border-2 border-light bg-black p-5;
+    }
+}

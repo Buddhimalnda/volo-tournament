@@ -9,9 +9,15 @@ function Navbar() {
         <li>
           <Link to="/">Home</Link>
         </li>
-        <li>Event Details</li>
-        <li>Teams Details</li>
-        <li>Partners</li>
+        <li>
+          <Link to="/event">Event Details</Link>
+        </li>
+        <li>
+          <Link to="/team">Teams Details</Link>
+        </li>
+        <li>
+          <Link to="/partners">Partners</Link>
+        </li>
       </ul>
     </div>
   );

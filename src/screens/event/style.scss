@@ -1,0 +1,40 @@
+.notice {
+  @apply flex relative mt-16 justify-center items-center;
+  .card {
+    @apply border-2 border-black p-5 flex rounded-xl bg-light shadow-lg  shadow-primary mx-3 max-w-lg my-2;
+    // width: 600px;
+    .img-notice {
+      @apply flex justify-center items-center mr-3;
+    }
+    .details {
+      @apply text-left;
+      h1 {
+        @apply font-bold text-2xl;
+      }
+      p {
+        @apply text-justify;
+      }
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.time-table {
+  @apply flex justify-center items-center;
+  table {
+    @apply bg-light p-5 shadow-lg shadow-primary;
+  }
+  table,
+  thead,
+  tr,
+  th,
+  td {
+    @apply border-2 border-primary;
+  }
+  th {
+    @apply px-5;
+  }
+}

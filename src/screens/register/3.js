@@ -1,11 +1,24 @@
 import { Button, Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addBankDetail } from "../../app/register/refSlice";
 
 function BankReciptPage({ nextPage }) {
   const [file, setFile] = useState();
   // useEffect(() => {
   //   data({ file: file });
   // }, [data, file]);
+  const dispatch = useDispatch();
+  const onHandleBtn = (e) => {
+    // e.preventdefault();
+    nextPage(4);
+    dispatch(
+      addBankDetail({
+        timestamp: new Date().toJSON,
+        bank: file,
+      })
+    )
+  };
   return (
     <Grid container spacing={2} rowSpacing={1}>
       <Grid item md={12}>

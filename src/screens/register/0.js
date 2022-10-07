@@ -1,7 +1,8 @@
 import { Button, Grid } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 
 function InitialRegisterPage({ nextPage }) {
+  const [check, setCheck] = useState(false);
   return (
     <div className="flex justify-between text-center h-full flex-col">
       <h1>Registation Form</h1>
@@ -21,7 +22,7 @@ function InitialRegisterPage({ nextPage }) {
           </li>
         </ul>
         <div className="check flex items-center">
-          <input type="checkbox" value="YES" id="check" />{" "}
+          <input type="checkbox" id="check" onChange={(e)=> setCheck(!check)} />
           <label htmlFor="check" className="ml-3">
             sc
           </label>
@@ -33,6 +34,7 @@ function InitialRegisterPage({ nextPage }) {
             variant="contained"
             color="secondary"
             fullWidth
+            disabled={!check}
             onClick={() => nextPage(1)}
           >
             Next

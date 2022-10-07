@@ -1,5 +1,7 @@
 import { Button, Grid, TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTeamDetails } from "../../app/register/refSlice";
 
 function TeamRegPage({ nextPage }) {
   const [teamName, setTeamName] = useState();
@@ -9,7 +11,7 @@ function TeamRegPage({ nextPage }) {
   const [teamEmail, setTeamEmail] = useState();
   const [teamDiscodeName, setTeamDiscodeName] = useState();
   const [teamDiscodeID, setTeamDiscodeID] = useState();
-
+  const dispatch = useDispatch();
   let team = {
     name: teamName,
     logo: teamLogo,
@@ -18,6 +20,22 @@ function TeamRegPage({ nextPage }) {
     email: teamEmail,
     discode: { name: teamDiscodeName, id: teamDiscodeID },
   };
+
+  const onHandleBtn = (e) => {
+    // e.preventdefault();
+    nextPage(2);
+    dispatch(
+      addTeamDetails({
+        name: teamName,
+        logo: teamLogo,
+        leader: teamLeader,
+        whatsapp: teamWP,
+        email: teamEmail,
+        discode: { name: teamDiscodeName, id: teamDiscodeID },
+      })
+    );
+  };
+
   return (
     <Grid container spacing={2} rowSpacing={1}>
       <Grid item md={12} xs={12} className="flex items-center justify-center">
@@ -108,7 +126,7 @@ function TeamRegPage({ nextPage }) {
           variant="contained"
           color="secondary"
           fullWidth
-          onClick={() => nextPage(2)}
+          onClick={(e) => onHandleBtn(e)}
         >
           Next
         </Button>

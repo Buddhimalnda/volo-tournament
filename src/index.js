@@ -6,6 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 import { createTheme, ThemeProvider } from "@mui/material";
 import Register from "./screens/register";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./app/store";
 
 const theme = createTheme({
   palette: {
@@ -19,14 +21,16 @@ const theme = createTheme({
 });
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <ThemeProvider theme={theme}>
-      <React.StrictMode>
-        {/* <App /> */}
-        <App />
-      </React.StrictMode>
-    </ThemeProvider>
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <React.StrictMode>
+          {/* <App /> */}
+          <App />
+        </React.StrictMode>
+      </ThemeProvider>
+    </BrowserRouter>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

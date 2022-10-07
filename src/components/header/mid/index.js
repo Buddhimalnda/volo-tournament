@@ -19,7 +19,7 @@ function Mid() {
           <div className="grid">
             <div className="col col-span-10">
               {/* <div className="btn btn-register">Register</div> */}
-              <Link to="/valo/register" re>
+              <Link to="/valo/register">
                 <Button
                   variant="outlined"
                   className="btn w-full"
@@ -31,9 +31,12 @@ function Mid() {
             </div>
             <div className="col-span-2 flex ">
               {/* <div className="btn btn-register"></div> */}
-              <Button variant="outlined" className="btn">
-                About Us
-              </Button>
+              <Link to="/aboutus">
+                <Button variant="outlined" className="btn">
+                  About Us
+                </Button>
+              </Link>
+
               <Button variant="outlined" className="btn">
                 Rules & guild lines
               </Button>
