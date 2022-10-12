@@ -1,28 +1,14 @@
 import { Button, Grid } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PlayerRegister from "./player";
-import { addMembersDetails } from "../../app/register/refSlice";
-import { useDispatch } from "react-redux";
-
 
 function MemberRegPage({ nextPage }) {
-  const [playerOne, setPlayerOne] = useState({});
-  const [playerTwo, setPlayerTwo] = useState({});
-  const [playerThree, setPlayerThree] = useState({});
-  const [playerFour, setPlayerFour] = useState({});
-  const [playerFive, setPlayerFive] = useState({});
-  const [playerSix, setPlayerSix] = useState({});
-  const [playerSeven, setPlayerSeven] = useState({});
-  const dispatch = useDispatch()
+  const [error, setError] = useState(false);
 
-  
   const onHandleBtn = (e) => {
+    setError(true);
     // e.preventdefault();
-    nextPage(3);
-    dispatch(
-      addMembersDetails({0: playerOne,
-         1: playerTwo, 2: playerThree, 3: playerFour, 4: playerFive, 5: playerSix ? playerSix : " ", 6: playerSeven ? playerSeven : " ",})
-    );
+    if (error) nextPage(3);
   };
 
   return (
@@ -34,19 +20,24 @@ function MemberRegPage({ nextPage }) {
       </Grid>
       <Grid item md={12}>
         <div className="mb-4">
-          <PlayerRegister i={1} data={(e) => setPlayerOne(e)} />
-          <PlayerRegister i={2} data={(e) => setPlayerTwo(e)} />
-          <PlayerRegister i={3} data={(e) => setPlayerThree(e)} />
-          <PlayerRegister i={4} data={(e) => setPlayerFour(e)} />
-          <PlayerRegister i={5} data={(e) => setPlayerFive(e)} />
-          <PlayerRegister i={6} data={(e) => setPlayerSix(e)} />
-          <PlayerRegister i={7} data={(e) => setPlayerSeven(e)} />
+          <PlayerRegister i={0} error={error} />
+          <PlayerRegister i={1} error={error} />
+          <PlayerRegister i={2} error={error} />
+          <PlayerRegister i={3} error={error} />
+          <PlayerRegister i={4} error={error} />
+          <PlayerRegister i={5} />
+          <PlayerRegister i={6} />
         </div>
       </Grid>
       <Grid item md={12}>
         <p className="text-danger text-center">
           You can have 2 extra players, Its also optional.
         </p>
+      </Grid>
+      <Grid item md={6}>
+        <Button variant="contained" fullWidth onClick={() => nextPage(1)}>
+          Back
+        </Button>
       </Grid>
       <Grid item md={6}>
         <Button
@@ -56,11 +47,6 @@ function MemberRegPage({ nextPage }) {
           onClick={(e) => onHandleBtn(e)}
         >
           Next
-        </Button>
-      </Grid>
-      <Grid item md={6}>
-        <Button variant="contained" fullWidth onClick={() => nextPage(1)}>
-          Back
         </Button>
       </Grid>
     </Grid>

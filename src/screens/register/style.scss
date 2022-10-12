@@ -19,3 +19,7 @@
     @apply block;
   }
 }
+
+.loading {
+  @apply flex justify-between items-center mx-10;
+}

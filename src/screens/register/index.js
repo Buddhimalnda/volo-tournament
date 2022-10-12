@@ -13,12 +13,12 @@ import TeamRegPage from "./1";
 import MemberRegPage from "./2";
 import BankReciptPage from "./3";
 import Validate from "./4";
-import PlayerRegister from "./player";
+// import PlayerRegister from "./player";
 import "./style.scss";
 function Register() {
   const [pageCount, setPageCount] = useState(0);
   const [members, setMembers] = useState();
-  const [team, setTeam] = useState();
+  const [teamLogo, setTeamLogo] = useState();
   const [bank, setBank] = useState();
 
   return (
@@ -29,13 +29,23 @@ function Register() {
             {pageCount === 0 ? (
               <InitialRegisterPage nextPage={(e) => setPageCount(e)} />
             ) : pageCount === 1 ? (
-              <TeamRegPage nextPage={(e) => setPageCount(e)} />
+              <TeamRegPage
+                nextPage={(e) => setPageCount(e)}
+                logo={(e) => setTeamLogo(e)}
+              />
             ) : pageCount === 2 ? (
               <MemberRegPage nextPage={(e) => setPageCount(e)} />
             ) : pageCount === 3 ? (
-              <BankReciptPage nextPage={(e) => setPageCount(e)} />
+              <BankReciptPage
+                nextPage={(e) => setPageCount(e)}
+                payment={(e) => setBank(e)}
+              />
             ) : pageCount === 4 ? (
-              <Validate nextPage={(e) => setPageCount(e)} />
+              <Validate
+                nextPage={(e) => setPageCount(e)}
+                logo={teamLogo}
+                payment={bank}
+              />
             ) : pageCount < 0 ? (
               setPageCount(0)
             ) : (

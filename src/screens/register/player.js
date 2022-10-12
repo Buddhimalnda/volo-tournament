@@ -1,6 +1,4 @@
 import {
-  Button,
-  FilledInput,
   FormControl,
   Grid,
   InputLabel,
@@ -9,53 +7,106 @@ import {
   TextField,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addMembersDetails } from "../../app/register/refSlice";
 import "./style.scss";
-function PlayerRegister({ data, i }) {
+function PlayerRegister({ i, error, isError }) {
   const [name, setName] = useState();
   const [roitId, setRoitId] = useState();
   const [tag, setTag] = useState();
   const [rank, setRank] = useState("Iron");
   const [level, setLevel] = useState(1);
+  const data = useSelector((state) => state.register.members[i]);
   useEffect(() => {
-    data({
-      name: name,
-      roit_id: roitId,
-      tag: tag,
-      rank: { code: rank, level: level },
-    });
+    if (data) {
+      setName(data[0]);
+      setRoitId(data[1]);
+      setTag(data[2]);
+      setRank(data[3] ? data[3] : "None");
+      setLevel(data[4] ? data[4] : 0);
+    }
   }, [name, roitId, tag, rank, level, data]);
+  const dispatch = useDispatch();
+  const onChangeHandler = async (e) => {
+    const id =
+      e.target.id === "name"
+        ? 0
+        : e.target.id === "riotId"
+        ? 1
+        : e.target.id === "tag"
+        ? 2
+        : e.target.name === "rank"
+        ? 3
+        : e.target.name === "count"
+        ? 4
+        : 5;
+    const value = e.target.value;
+    switch (id) {
+      case 0:
+        setName(value);
+        break;
+      case 1:
+        setRoitId(value);
+        break;
+      case 2:
+        setTag(value);
+        break;
+      case 3:
+        setRank(value);
+        break;
+      case 4:
+        setLevel(value);
+        break;
+      default:
+        console.log("id error", e);
+        break;
+    }
+    await dispatch(
+      addMembersDetails({
+        i: i,
+        id: id,
+        value: value,
+      })
+    );
+  };
   return (
     <Grid container spacing={2} rowSpacing={1} className="mb-3">
       <Grid item md={1} xs={12}>
-        <p className="flex justify-center items-center h-14">#0{i}</p>
+        <p className="flex justify-center items-center h-14">#0{i + 1}</p>
       </Grid>
       <Grid item md={3} xs={12}>
         <TextField
           fullWidth
-          id="name-player"
+          id="name"
+          error={error ? (name ? false : true) : false}
           label="Player Name"
           variant="outlined"
           color="secondary"
-          onChange={(e) => setName(e.target.value)}
+          value={name}
+          onChange={(e) => onChangeHandler(e)}
         />
       </Grid>
       <Grid item md={2} xs={6}>
         <TextField
           fullWidth
-          id="code-player"
+          error={error ? (roitId ? false : true) : false}
+          id="riotId"
+          value={roitId}
           label="Riot ID"
           variant="outlined"
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => onChangeHandler(e)}
           color="secondary"
         />
       </Grid>
       <Grid item md={2} xs={6}>
         <TextField
+          error={error ? (tag ? false : true) : false}
           fullWidth
-          onChange={(e) => setName(e.target.value)}
-          id="code-player"
+          onChange={(e) => onChangeHandler(e)}
+          id="tag"
           label="Tag line"
           variant="outlined"
+          value={tag}
           color="secondary"
         />
       </Grid>
@@ -63,14 +114,17 @@ function PlayerRegister({ data, i }) {
       {/* <Grid item md={3}></Grid> */}
       <Grid item md={2}>
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Rack Name</InputLabel>
+          <InputLabel id="rank-l">Rack Name</InputLabel>
           <Select
-            labelId="demo-simple-select-label"
-            id="rank-name-account"
+            labelId="rank-l"
+            id="rank"
+            error={error ? (rank !== "None" ? false : true) : false}
+            name="rank"
             value={rank}
             label="Rack Name"
-            onChange={(e) => setRank(e.target.value)}
+            onChange={(e) => onChangeHandler(e)}
           >
+            <MenuItem value="None">None </MenuItem>
             <MenuItem value="Iron">Iron</MenuItem>
             <MenuItem value="Bronze">Bronze</MenuItem>
             <MenuItem value="Silver">Silver</MenuItem>
@@ -85,15 +139,18 @@ function PlayerRegister({ data, i }) {
       </Grid>
       <Grid item md={2}>
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Rank level</InputLabel>
+          <InputLabel id="level-label">Rank level</InputLabel>
           <Select
-            labelId="demo-simple-select-label"
-            id="rank-count-account"
-            onChange={(e) => setLevel(e.target.value)}
+            labelId="level-label"
+            id="count"
+            error={error ? (level !== 0 ? false : true) : false}
+            name="count"
+            onChange={(e) => onChangeHandler(e)}
             value={level}
             label="Rank level"
             // onChange={handleChange}
           >
+            <MenuItem value={0}>0</MenuItem>
             <MenuItem value={1}>1</MenuItem>
             <MenuItem value={2}>2</MenuItem>
             <MenuItem value={3}>3</MenuItem>

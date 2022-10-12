@@ -3,19 +3,19 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addBankDetail } from "../../app/register/refSlice";
 
-function BankReciptPage({ nextPage }) {
+function BankReciptPage({ nextPage, payment }) {
   const [file, setFile] = useState();
-  // useEffect(() => {
-  //   data({ file: file });
-  // }, [data, file]);
+  useEffect(() => {
+    payment(file);
+  }, [payment, file]);
   const dispatch = useDispatch();
   const onHandleBtn = (e) => {
     // e.preventdefault();
     nextPage(4);
     dispatch(
       addBankDetail({
-        timestamp: new Date().toJSON,
-        bank: file,
+        timestamp: new Date().toJSON(),
+        bank: file.name,
       })
     );
   };
@@ -36,11 +36,16 @@ function BankReciptPage({ nextPage }) {
         <input
           type="file"
           className="ml-20"
-          onChange={(e) => setFile(e.target.files)}
+          onChange={(e) => setFile(e.target.files[0])}
         />
       </Grid>
       <Grid item md={12}>
         <p className="text-danger text-center"></p>
+      </Grid>
+      <Grid item md={6}>
+        <Button variant="contained" fullWidth onClick={() => nextPage(2)}>
+          Back
+        </Button>
       </Grid>
       <Grid item md={6}>
         <Button
@@ -50,11 +55,6 @@ function BankReciptPage({ nextPage }) {
           onClick={(e) => onHandleBtn(e)}
         >
           Next
-        </Button>
-      </Grid>
-      <Grid item md={6}>
-        <Button variant="contained" fullWidth onClick={() => nextPage(2)}>
-          Back
         </Button>
       </Grid>
     </Grid>

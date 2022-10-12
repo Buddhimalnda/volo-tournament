@@ -22,7 +22,11 @@ function InitialRegisterPage({ nextPage }) {
           </li>
         </ul>
         <div className="check flex items-center">
-          <input type="checkbox" id="check" onChange={(e)=> setCheck(!check)} />
+          <input
+            type="checkbox"
+            id="check"
+            onChange={(e) => setCheck(!check)}
+          />
           <label htmlFor="check" className="ml-3">
             sc
           </label>
@@ -32,21 +36,21 @@ function InitialRegisterPage({ nextPage }) {
         <Grid item md={6}>
           <Button
             variant="contained"
+            fullWidth
+            // onClick={() => setPageCount(pageCount >= 0 ? pageCount - 1 : 0)}
+          >
+            Back
+          </Button>
+        </Grid>
+        <Grid item md={6}>
+          <Button
+            variant="contained"
             color="secondary"
             fullWidth
             disabled={!check}
             onClick={() => nextPage(1)}
           >
             Next
-          </Button>
-        </Grid>
-        <Grid item md={6}>
-          <Button
-            variant="contained"
-            fullWidth
-            // onClick={() => setPageCount(pageCount >= 0 ? pageCount - 1 : 0)}
-          >
-            Back
           </Button>
         </Grid>
       </Grid>

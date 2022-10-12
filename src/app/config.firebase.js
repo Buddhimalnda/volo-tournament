@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getDatabase } from "firebase/database";
 import { GoogleAuthProvider, getAuth } from "firebase/auth";
+import { getStorage } from "firebase/storage";
 
 import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -24,12 +25,18 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const fs = getFirestore(app);
 const db = getDatabase(app);
+const storage = getStorage(app);
+// const storageLogo = getStorage(app, "gs://ignition-valo.appspot.com/logos");
+// const storagePayment = getStorage(
+//   app,
+//   "gs://ignition-valo.appspot.com/payments"
+// );, storageLogo, storagePayment
 const analytics = getAnalytics(app);
 
 //
 // const provider = new GoogleAuthProvider();
 const auth = getAuth();
 
-export { app, fs, db, auth };
+export { app, fs, db, auth, storage };
 
 export default firebaseConfig;
